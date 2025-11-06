@@ -56,7 +56,14 @@ print("-------------------------------------------\n"
 # Recorded: wallet (black) found at train station
 #
 # Write your code below:
-
+item_name=input("Enter the item name:")
+colour=input("Enter a colour :")
+location=input("Enter location:")
+my_dict={"item name":item_name,"colour":colour,"location":location}
+print(my_dict["item name"])
+print(my_dict["colour"])
+print(my_dict["location"])
+print(f"Recorded : {item_name}, {colour} and found at {location}")
 # HINT: Create dictionary syntax is:
 # my_dict = {"key1": value1, "key2": value2, "key3": value3}
 
