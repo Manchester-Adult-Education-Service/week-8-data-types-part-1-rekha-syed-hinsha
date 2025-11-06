@@ -104,6 +104,26 @@ print("-------------------------------------------\n"
 # Item 2: phone (silver) - Found at: shopping centre
 #
 # Write your code below:
+# First way of putting dictionary into list
+# found_items = [my_dict]
+
+# Second way of putting dictionary into list
+found_items = []
+found_items.append(my_dict)
+user = input("Do you want to add another item? (yes or no) :")
+if user == "yes":
+    new_dict = {}
+    new_item_name = input("Enter new item: ")
+    new_item_colour =input("Enter new item colour: ")
+    new_item_location = input("Enter new item location: ")
+    new_dict = {"item_name": new_item_name, "colour": new_item_colour, "location": new_item_location}
+    found_items.append(new_dict)
+    print(f"item name {new_item_name} ,item colour {new_item_colour} found at {new_item_location}" )
+else:
+    print("No new items found!")
+print(f"Total number of items recorded {len(found_items)}")
+for item in found_items:
+    print(item)
 
 # HINT: To access dictionary values, use: dictionary_name["key_name"]
 # Example: found_item["name"] gets the name value
