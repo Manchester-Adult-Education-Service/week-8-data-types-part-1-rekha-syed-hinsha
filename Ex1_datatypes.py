@@ -116,7 +116,7 @@ if user == "yes":
     new_item_name = input("Enter new item: ")
     new_item_colour =input("Enter new item colour: ")
     new_item_location = input("Enter new item location: ")
-    new_dict = {"item_name": new_item_name, "colour": new_item_colour, "location": new_item_location}
+    new_dict = {"item name": new_item_name, "colour": new_item_colour, "location": new_item_location}
     found_items.append(new_dict)
     print(f"item name {new_item_name} ,item colour {new_item_colour} found at {new_item_location}" )
 else:
@@ -175,6 +175,17 @@ print("-------------------------------------------\n"
 # Total items: 2
 #
 # Write your code below:
+print(" === FOUND ITEMS RECORDS ===")
+counter=1
+if found_items=="empty":
+    print("No items recorded yet.")
+else:
+    for item in found_items:
+        print(f"Record {counter}:")
+        print(item["item name"])
+        print(item["colour"])
+        print(item["location"])
+        counter+=1
 
 # HINT: When looping through a list of dictionaries:
 # for item in found_items:
