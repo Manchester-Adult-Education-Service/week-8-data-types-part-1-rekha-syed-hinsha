@@ -177,7 +177,7 @@ print("-------------------------------------------\n"
 # Write your code below:
 print(" === FOUND ITEMS RECORDS ===")
 counter=1
-if found_items=="empty":
+if len(found_items)==0:
     print("No items recorded yet.")
 else:
     for item in found_items:
@@ -230,11 +230,16 @@ print("-------------------------------------------\n"
 # HINT: Use item["name"].lower() == search_term.lower()
 #
 # Write your code below:
+search_name = input("Enter item name to search for: ").lower()
+found = False
+for i in found_items:
+    if i["item name"].lower() == search_name:
+        found = True
+        print(i)
+if found == False:
+    print(f"No items found with that name.")
 
-
-
-
-# -------------------------------------------
+# ------------------- -----------------------
 # SWAP COMPUTERS
 # -------------------------------------------
 # git add Ex1_datatypes.py
