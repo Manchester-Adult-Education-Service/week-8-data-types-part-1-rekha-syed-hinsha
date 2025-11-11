@@ -56,6 +56,27 @@ print("-------------------------------------------\n"
 # Recorded: wallet (black) found at train station
 #
 # Write your code below:
+#item_name=input("Enter the item name:")
+#colour=input("Enter a colour :")
+#location=input("Enter location:")
+#my_dict={"item name":item_name,"colour":colour,"location":location}
+#print(my_dict["item name"])
+#print(my_dict["colour"])
+#print(my_dict["location"])
+#print(f"Recorded : {item_name}, {colour} and found at {location}")
+item_name = input("Enter item name: ")
+colour = input("Enter colour: ")
+location = input("Enter location: ")
+
+found_item = {
+    "name": item_name,
+    "colour": colour,
+    "location": location
+}
+print(found_item["name"])
+print(found_item["colour"])
+print(found_item["location"])
+print(f"Recorded: {found_item['name']}, ({found_item['colour']}) and found at {found_item['location']}")
 
 # HINT: Create dictionary syntax is:
 # my_dict = {"key1": value1, "key2": value2, "key3": value3}
@@ -97,6 +118,46 @@ print("-------------------------------------------\n"
 # Item 2: phone (silver) - Found at: shopping centre
 #
 # Write your code below:
+# First way of putting dictionary into list
+# found_items = [my_dict]
+
+# Second way of putting dictionary into list
+# found_items = []
+# found_items.append(my_dict)
+# user = input("Do you want to add another item? (yes or no) :")
+# if user == "yes":
+#     new_dict = {}
+#     new_item_name = input("Enter new item: ")
+#     new_item_colour =input("Enter new item colour: ")
+#     new_item_location = input("Enter new item location: ")
+#     new_dict = {"item name": new_item_name, "colour": new_item_colour, "location": new_item_location}
+#     found_items.append(new_dict)
+#     print(f"item name {new_item_name} ,item colour {new_item_colour} found at {new_item_location}" )
+# else:
+#     print("No new items found!")
+# print(f"Total number of items recorded {len(found_items)}")
+# for item in found_items:
+#     print(item)
+found_items = []
+found_items.append(found_item)
+add_another = input("Do you want to add another item (yes or no): ").lower()
+if add_another == "yes":
+    name = input("Enter new item name: ")
+    colour = input("Enter new item colour: ")
+    location = input("Enter new item location: ")
+    new_item = {
+        "name": name,
+        "colour": colour,
+        "location": location
+    }
+    found_items.append(new_item)
+    print(f"Recorded: {name} ({colour}) found at {location}")
+else:
+    print("No new items added.") 
+print(f"\nTotal items recorded: {len(found_items)}")
+for i in range(0, len(found_items)):
+    item = found_items[i]
+    print(f"Item {i + 1}: {item['name']} ({item['colour']}) - found at: {item['location']}")
 
 # HINT: To access dictionary values, use: dictionary_name["key_name"]
 # Example: found_item["name"] gets the name value
@@ -148,6 +209,17 @@ print("-------------------------------------------\n"
 # Total items: 2
 #
 # Write your code below:
+print(" === FOUND ITEMS RECORDS ===")
+counter=1
+if len(found_items)==0:
+    print("No items recorded yet.")
+else:
+    for item in found_items:
+        print(f"Record {counter}:")
+        print(item["name"])
+        print(item["colour"])
+        print(item["location"])
+        counter+=1
 
 # HINT: When looping through a list of dictionaries:
 # for item in found_items:
@@ -192,11 +264,17 @@ print("-------------------------------------------\n"
 # HINT: Use item["name"].lower() == search_term.lower()
 #
 # Write your code below:
+search_name = input("Enter item name to search for: ").lower()
+found = False
+for i in found_items:
+   if i["name"].lower() == search_name.lower():
+       found = True
+       print(i)
+       print(f"Found: {i['name']} ({i['colour']}) - Found at: {i['location']}")
+if found == False:
+   print(f"No items found with that name.")
 
-
-
-
-# -------------------------------------------
+# ------------------- -----------------------
 # SWAP COMPUTERS
 # -------------------------------------------
 # git add Ex1_datatypes.py
@@ -235,9 +313,16 @@ print("-------------------------------------------\n"
 # Total items: 3
 #
 # Write your code below:
+name = input("Enter a name: ")
+colour = input("Enter a colour: ")
+location = input("Enter a location: ")
 
-
-
+if len(name) == 0 or len(colour) == 0 or len(location) == 0:
+    print("Error: All fields must be filled in! and DON'T add the item.")   
+else:
+    add_another = {"name": name, "colour": colour, "location": location}
+    found_items.append (add_another)
+    print(f"Item added successfully!")
 
 # -------------------------------------------
 # SWAP COMPUTERS
@@ -273,8 +358,11 @@ print("-------------------------------------------\n"
 # item["id"] = next_id
 #
 # Write your code below:
-
-
+next_id = 1
+for item in found_items:
+    item["id"] = next_id
+    next_id = next_id + 1
+    print(f"ID: {item["id"]} | Name: {item["name"]} | Colour: {item["colour"]} | Location: {item["location"]}")
 
 
 # -------------------------------------------
